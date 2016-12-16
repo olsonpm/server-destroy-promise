@@ -1,19 +1,45 @@
-module.exports = enableDestroy;
+'use strict';
 
-function enableDestroy(server) {
-  var connections = {}
 
-  server.on('connection', function(conn) {
-    var key = conn.remoteAddress + ':' + conn.remotePort;
+//---------//
+// Imports //
+//---------//
+
+const promisify = require('pify');
+
+
+//------//
+// Main //
+//------//
+
+const attachDestroyMethod = server => {
+  const connections = {};
+
+  server.on('connection', conn => {
+    const key = conn.remoteAddress + ':' + conn.remotePort;
     connections[key] = conn;
-    conn.on('close', function() {
-      delete connections[key];
-    });
+    conn.once(
+      'close'
+      , () => {
+        delete connections[key];
+      }
+    );
   });
 
-  server.destroy = function(cb) {
-    server.close(cb);
-    for (var key in connections)
+  server.destroy = () => {
+    const pRes = promisify(server.close.bind(server))();
+
+    for (var key in connections) {
       connections[key].destroy();
+    }
+
+    return pRes;
   };
-}
+};
+
+
+//---------//
+// Exports //
+//---------//
+
+module.exports = { attachDestroyMethod };

@@ -13,5 +13,8 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "license": "ISC",
   "readmeFilename": "README.md",
-  "gitHead": "71e22162bacb9368de045db4283f95f02194479b"
+  "gitHead": "71e22162bacb9368de045db4283f95f02194479b",
+  "dependencies": {
+    "pify": "^2.3.0"
+  }
 }
