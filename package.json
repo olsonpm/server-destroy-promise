@@ -1,6 +1,6 @@
 {
-  "name": "server-destroy",
-  "version": "1.0.1",
+  "name": "server-destroy-promise",
+  "version": "0.1.0",
   "description": "Enable destroying a server, and all currently open connections.",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/isaacs/server-destroy"
+    "url": "git://github.com/olsonpm/server-destroy-promise"
   },
-  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
+  "author": "phil olson",
   "license": "ISC",
-  "readmeFilename": "README.md",
-  "gitHead": "71e22162bacb9368de045db4283f95f02194479b",
   "dependencies": {
     "pify": "^2.3.0"
   }
