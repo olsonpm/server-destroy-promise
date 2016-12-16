@@ -1,6 +1,6 @@
 # server-destroy-promise
 
-Copied from Isaacs' server-destroy, with a few changes  
+Copied from [Isaacs' server-destroy](https://github.com/isaacs/server-destroy), with a few changes  
 1) lib exposes `attachDestroyMethod` property instead of returning the function.  See example below.  
 2) use `once` instead of `on` per [issue #6](https://github.com/isaacs/server-destroy/issues/6)  
 3) `attachDestroyMethod` returns the server to allow for more functional use (*still mutates the server, the method just also returns it*)  
